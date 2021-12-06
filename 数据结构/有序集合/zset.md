@@ -1,5 +1,5 @@
-## Redis跳表实现
-我们来看看Redis的zset。
+## RedisZSet实现
+今天我们来看看Redis的zset。
 
 zset是什么？首先顾名思义，zset包含单词set，因此它肯定是满足集合的性质，即在zset中的元素不重复。
 
@@ -13,7 +13,7 @@ zset是什么？首先顾名思义，zset包含单词set，因此它肯定是满
 
 嘿，那你可跟redis想一块去了，zset就这么干的。
 
-底层实现：跳表**（贴跳表文章链接）**
+底层实现：跳表
 
 在原始跳表的基础上，redis做了点改进，之前咱跳表是按值大小，现在变成权值大小，来看看它跳表节点定义：
 
@@ -33,7 +33,7 @@ typedef struct zskiplistNode {
 } zskiplistNode;
 ```
 来结合上次的跳表的图再理解一下。
-![跳表1](skip8.png)
+![跳表1](https://cdn.jsdelivr.net/gh/autoencoder-github/redis_article//数据结构/有序集合/skip8.png)
 
 
 非常好理解对不对。节点定义理清楚了，来看看redis跳表的定义：
